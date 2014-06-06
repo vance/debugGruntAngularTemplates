@@ -23,19 +23,19 @@ app.config(['$routeProvider',
     }
 ]);
 
-app.run(['$rootScope', '$route', '$location', '$templateCache',
-    function($rootScope, $route, $location, $templateCache) {
+app.run(['$rootScope', '$route', '$location',
+    function($rootScope, $route, $location) {
         'use strict';
 
         // bind the '$locationChangeSuccess' event on the rootScope
-        $rootScope.$on('$routeChangeStart', function() {
+        $rootScope.$on('$routeChangeStart', function () {
             Debug.time('pages.load.' + $location.path().substring(1));
         });
 
         // bind the '$locationChangeSuccess' event on the rootScope
-        $rootScope.$on('$locationChangeSuccess', function() {
+        $rootScope.$on('$locationChangeSuccess', function () {
             Debug.timeEnd('pages.load.' + $location.path().substring(1));
         });
-
+    }
 ]);
 
