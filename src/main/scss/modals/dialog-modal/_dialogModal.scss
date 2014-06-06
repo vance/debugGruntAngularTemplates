@@ -1,0 +1,31 @@
+.dialog
+{
+  min-width: 400px;
+  max-width: 1200px;
+  max-height: 560px;
+  
+  .dialog-body
+  {
+    padding: 20px 0px 25px 0px;
+  }
+
+  .dialog-buttons
+  {
+    padding-bottom: 3px;
+    text-align:right;
+    white-space: nowrap;
+
+    button
+    {
+      margin-left: 8px;
+    }
+  }
+}
+
+.confirm-place-order {
+	.dialog-body {
+		padding-bottom: 80px;
+		margin-bottom:20px;
+		border-bottom: 1px solid #cccccc;
+	}
+}

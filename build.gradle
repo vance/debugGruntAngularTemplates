@@ -1,0 +1,103 @@
+#!groovy
+//
+// Globals
+//
+
+// 
+// Gradle plugins and dependencies
+// 
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+apply from: "${project.projectDir}/gradle/dependencies.gradle"
+
+
+repositories {
+  
+    maven {  }
+//     mavenCentral()
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Configuration Tasks
+//
+
+//def webServicesBaseURLConfigLocation = [ filename: 'src/main/app/settings.js', findPattern: /http.*\/das/ ]
+//def portalBaseURLConfigLocation = [ filename: 'src/main/app/settings.js', findPattern: /http.*\/portal/ ]
+
+def webServicesBaseUrls = [
+  localhost: 'http://localhost:8083/das'
+]
+
+def portalBaseUrls = [
+  localhost: 'http://localhost:8083/portal'
+]
+
+
+def processFileInplace(file, Closure processClosure) {
+  def text = file.text
+  file.write(processClosure(text))
+}
+
+
+println """\
+
+========================================================================================================
+Welcome to Gradle version $gradle.gradleVersion
+
+Gradle user directory is set to: $gradle.gradleUserHomeDir
+Base directory:                  $projectDir
+Running build script             ${relativePath(buildFile)}
+========================================================================================================
+"""
+
+// 
+// Project Settings
+// 
+group = ''
+version = ATONCE_WEB_VERSION_NUMBER
+projectname = ''
+
+artifactId = projectname
+groupId = group
+versionNumber = version
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Gradle tasks
+//
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// grunt tasks
+//
+// download the dependacies for Grunt
+task updateGrunt(type:Exec) {
+	commandLine 'npm', 'install'
+}
+
+// compile the SASS and Sprites
+task compileCSS(type:Exec, dependsOn: updateGrunt) {
+	commandLine 'grunt', 'compass'
+}
+
+
+// javascript linting
+task jsHint(type:Exec, dependsOn:[updateGrunt]) {
+	commandLine 'grunt', 'jshint'
+}
+
+// unit tests
+
+task unit(type:Exec, dependsOn:[updateGrunt]) {
+	commandLine 'grunt', 'unit'
+}
+
+task unitTest(type:Exec, dependsOn:[unit]) {
+	commandLine 'grunt', 'cover'
+}
+

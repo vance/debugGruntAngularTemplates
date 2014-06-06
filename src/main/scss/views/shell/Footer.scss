@@ -1,0 +1,42 @@
+/**
+ *
+ * Extract into Footer.scss
+ * 
+ */
+footer {
+
+  height: 62px;
+
+  min-width: 1280px;
+  width: 100%;
+
+  z-index: 20;
+
+  @include pie;
+
+  @include background(
+    image-url('shell/drawer-noise.png'),
+    linear-gradient(#303030, #25272b)
+  );
+
+  ul {
+    line-height: 36px;
+    list-style: none;
+    list-style-image: none;
+    color: #999999;
+    size: 14px;
+
+    li {
+      margin: 0 10px;
+    }
+  }
+
+  .logo {
+    margin-top: 10px;
+    display: block;
+    text-indent: -9999px;
+
+    @include sprite-dimensions($sprites, footer-swoosh);
+    @include sprites-generate(footer-swoosh);    
+  }
+}

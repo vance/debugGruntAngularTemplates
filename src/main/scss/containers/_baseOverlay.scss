@@ -1,0 +1,84 @@
+.overlay-container
+{
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  text-align:center;
+
+  background-color: rgba(0,0,0,0.8);
+
+  .overlay-content-wrapper
+  {
+    display: inline-block;
+    text-align:left;
+    position:relative;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 36px;
+    z-index: 1001;
+    background-color: #fff;
+    visibility:visible;
+    @include border-radius(4px);
+
+    @include transition-property('opacity');
+    @include transition-duration(250ms);
+    @include transition-timing-function(ease-in-out);
+
+    .overlay-close {
+      position: absolute;
+      
+      top: 15px;
+      right: 15px;
+      
+      @include sprite-dimensions($sprites, icon-x-dark-gray);
+      @include sprites-generate(icon-x-dark-gray);
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .overlay-help {
+      position: absolute;
+      
+      top: 15px;
+      right: 50px;
+      
+      @include sprite-dimensions($sprites, header-help-icon);
+      @include sprites-generate(header-help-icon);
+      
+      &:hover,&:active {
+        @include sprites-generate(header-help-icon-active);
+        cursor: pointer;
+      }
+    }
+
+    .overlay-header
+    {
+      padding-bottom: 20px;
+      border-bottom: solid 1px $gray;
+
+      h2
+      {
+        font-family: $TradeGothicBold;
+        color: #222;
+        font-size: 30px;
+        line-height:20px;
+        text-transform: uppercase;
+        letter-spacing: -1px;
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    .overlay-footer
+    {
+      padding-top: 20px;
+      border-top: solid 1px $gray;
+    }
+  }
+}

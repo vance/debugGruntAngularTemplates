@@ -1,0 +1,711 @@
+@import "compass/css3";
+@import "compass/css3/opacity";
+
+.ui-table {
+  
+  margin-bottom: 20px;
+  width: 100%;
+  
+  color: #666;
+  
+  th[colspan],
+  .ui-left {
+    text-align: left;
+  }
+  
+  .ui-snug {
+    padding: 0px !important;
+  }
+
+  .ui-centered,
+  &.ui-centered td {
+    text-align: center;
+  }
+
+  .ui-middle {
+    vertical-align: middle;
+  }
+  
+  thead,
+  .ui-light,
+  &.ui-light {
+    color: #b2b2b2;
+  }
+  
+  .ui-medium {
+    color: #808080;
+  }
+  
+  thead {
+    border-top: 1px solid #e9e9e9;
+    background: #fafafa;
+    
+    tr {
+      td,
+      th {
+        padding: 8px 0;
+        font-family: $TradeGothicBold;
+        font-size: 14px;
+        font-style: italic;
+        line-height: 14px;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+    }
+  }
+  
+  tbody {
+    tr {
+      td {
+        padding: 14px 0 13px;
+      }
+    }
+  }
+  
+  tr {
+    border-bottom: 1px solid #e9e9e9;
+  }
+  
+}
+
+/**
+  End ui-table
+  Begin ui-cta
+**/
+.ui-cta {
+  padding: 4px 8px;
+  display: inline-block;
+  
+  font-family: $TradeGothicBold;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  
+  @include border-radius(2px);
+}
+
+.ui-cta:visited,
+.ui-cta:hover {
+  color: #fff;
+}
+
+$UICTAGrayStart: #848484;
+$UICTAGrayEnd: #494949;
+
+.ui-cta-gray-striped.ui-cta-disabled {
+  color: #ffffff;
+  // @include background(image-url('assortment-detail/pdp/bkg-currently-in-assortment.png'));
+  display: inline !important;  /** don't let display: block override this **/
+}
+
+.base-ui-cta { /* DRY up the SCSS */
+  font-size: 0;
+  position: relative;
+  width: 38px;
+  height: 38px;
+  display: inline-block;
+  &:after {
+    position:absolute;
+    top: 6px;
+    left: 10px;
+    content: '.';
+    font-size: 0;
+    display: block;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    &:after {
+    }
+  }
+}
+
+.ui-cta-download {
+  @extend .base-ui-cta;  /* DRY up the SCSS */
+  &:after {
+    @include sprite-dimensions($sprites, gray-download-icon);
+    @include sprites-generate(gray-download-icon);
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    &:after {
+      @include sprites-generate(gray-download-icon-hover);
+    }
+  }
+}
+
+
+
+.ui-cta-download-white {
+  font-size: 0;
+  position: relative;
+  width: 58px;
+  height: 32px;
+  &:after {
+    @include sprite-dimensions($sprites, white-download-icon);
+    @include sprites-generate(white-download-icon);
+    position:absolute;
+    top:6px;
+    left:22px;
+    content: '.';
+    font-size: 0;
+    display: block;
+  }
+}
+
+.ui-cta-delete {
+  @extend .base-ui-cta;  /* DRY up the SCSS */
+  &:after {
+    @include sprite-dimensions($sprites, trash-icon);
+    @include sprites-generate(trash-icon);
+    left:22px;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    &:after {
+      @include sprites-generate(trash-orange-icon);
+    }
+  }
+}
+
+
+.ui-cta-copy {
+  @extend .base-ui-cta; /* DRY up the SCSS */
+  &:after {
+    @include sprite-dimensions($sprites, copy-icon-gray);
+    @include sprites-generate(copy-icon-gray);
+    left:22px;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    &:after {
+      @include sprites-generate(copy-icon-orange);
+    }
+  }
+}
+
+
+.ui-cta-wrapper {
+  margin: 2px 20px;
+}
+
+.ui-cta-group-container {
+  .ui-cta {
+    @include border-radius(0);
+  }
+  
+  .ui-cta:first-child {
+    @include border-top-left-radius(3px);
+    @include border-bottom-left-radius(3px);
+  }
+  
+  .ui-cta:last-child {
+    @include border-top-right-radius(3px);
+    @include border-bottom-right-radius(3px);
+  }
+}
+
+.ui-cta-remove {
+  padding: 4px 0;
+  line-height:14px;
+  
+  span {
+    padding-left: image-width(sprite-file($sprites, icon-x-small-gray)) + 4;
+    @include sprite-dimensions($sprites, icon-x-small-gray);
+    @include sprites-generate(icon-x-small-gray);
+    background-repeat: no-repeat;
+    color: #a6a6a6;
+    font-family: $TradeGothicBold;
+    font-size: 14px;
+  }
+}
+
+.ui-cta-remove:hover,
+.ui-cta-remove:active,
+.ui-cta-remove:focus {
+  
+  span {
+    @include sprite-dimensions($sprites, icon-x-small-dark-gray);
+    @include sprites-generate(icon-x-small-dark-gray);
+    color: #4c4c4c;
+  }
+}
+
+/**
+  End ui-cta
+  Begin ui-crd
+**/
+.ui-crd-box {
+  @include box-shadow(#ccc 0 0 1px);
+  width: 40px;
+  cursor: pointer;
+
+  .month {
+    @include pie;
+
+    color: white;
+    font-size: 11px;
+    font-family: $TradeGothicBold;
+    text-align: center;
+    line-height: 1;
+    @include background(
+      linear-gradient(#f70d0d, #cf0000)
+    );
+    text-transform: uppercase;
+    padding-bottom: 1px;
+    border-bottom: 1px solid #970000;
+    @include border-top-left-radius(3px);
+    @include border-top-right-radius(3px);
+  }
+  &.ui-crd-box-inactive {
+    cursor: auto;
+    .month {
+      @include background(
+        linear-gradient(#909090, #7f7f7f)
+      );
+      border-bottom: 1px solid #787878;
+    }
+  }
+  .day {
+    @include pie;
+
+    height: 30px;
+    padding-top: 2px;
+    line-height: 25px;
+    color: #2d2d2d;
+    font-size: 25px;
+    font-family: $TradeGothicBold;
+    text-align: center;
+    border-left: 1px solid #d6d6d6;
+    border-bottom: 1px solid #d8d8d8;
+    border-bottom: 1px solid #c6c6c6;
+    @include border-bottom-left-radius(3px);
+    @include border-bottom-right-radius(3px);
+    @include background(
+      linear-gradient(bottom, #DFDFDF 3%, #F3F3F3 20%, #F8F8F8 48%)
+    );
+  }
+
+  &.condensed-gray
+  {
+    width: 30px;
+          
+    .month {
+
+      @include pie;
+
+      @include background(
+        linear-gradient(#999999, #999999)
+      );
+
+      border-radius: 0px;
+      border-bottom: none;
+      height: 16px;
+      font-size: 10px;
+      line-height: 16px;
+    }
+    
+    .day {
+
+      @include pie;
+
+      font-size: 14px;
+      height: 18px;
+      border-radius: 0px;
+      color: #333;
+      line-height: 18px;
+      padding: 0;
+      
+      $experimental-support-for-svg: true;
+        
+      @include background(
+        linear-gradient(bottom, #DFDFDF 3%, #F3F3F3 20%, #F8F8F8 48%)
+      );
+    }
+  }
+}
+
+
+/**
+  End ui-crd
+  Begin ui-form-control
+**/
+
+.ui-form-control[type=checkbox] {
+  padding: 3px;
+  @include appearance('none');
+  border: 1px solid #ccc;
+  width: 20px;
+  height: 20px;
+  
+  @include border-radius(3px);
+}
+
+.ui-form-control[type=checkbox]:checked {
+  @include sprites-generate(ui-form-control-checkbox-checked);
+  background-repeat: no-repeat;
+}
+
+.ui-form-control[type=text],
+.ui-form-control[type=password],
+.ui-form-control[type=number] {
+  padding: 8px 10px 7px;
+  font-family: $TradeGothicBold;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 14px;
+  text-transform: uppercase;
+  min-width: 250px;
+  border: 0;
+  
+  @include appearance('none');
+  @include border-radius(3px);
+  @include box-shadow(inset #aaa 0 1px 2px);
+  border-bottom: 1px solid #eee;
+}
+
+.ui-form-control.ui-error[type=text],
+.ui-form-control.ui-error[type=password],
+.ui-form-control.ui-error[type=number] {
+  background-color: #fff2f2 !important;
+}
+
+.ui-error-severe {
+  background-color: #fff2f2;
+  color: #d00 !important;
+}
+
+.ui-error-warn {
+  background-color: #ffffff;
+  color: #d00 !important;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    @include appearance('none');
+    margin: 0;
+}
+
+.ui-cta-gray.ui-icon-search {
+//  @include background(
+//    sprite($sprites, ui-form-control-icon-search, 12px, 7px),
+//    linear-gradient($UICTAGrayStart, $UICTAGrayEnd)
+//  );
+}
+
+label.ui-form-control {
+  margin-left: 6px;
+  font-family: $TradeGothicBold;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 22px;
+  text-transform: uppercase;
+}
+
+.ui-form-control.ui-gray {
+  color: #808080;
+}
+
+/**
+  End ui-form-control
+  Begin data-default
+**/
+.ui-default-gray {
+  color: #d1d1d1;
+}
+
+/**
+  End data-default
+  Begin ui-overlay
+**/
+
+.ui-overlay {
+  
+  width: 100%;
+  height: 100%;
+
+  .ui-overlay-blocker {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    
+    @include background(image-url('components/overlay/blocker.png'));
+  }
+  
+  .ui-overlay-content-block {
+    position: fixed;
+    left: 50%;
+    top: 20%;    
+    margin-left: -250px;
+    width: 500px;
+    background: #f5f5f5;
+    z-index: 9000;
+
+    @include box-shadow(#000 0 0 20px 2px);
+    
+    .ui-overlay-close {
+      position: absolute;
+      top: -18px;
+      right: -18px;
+      width: 39px;
+      height: 43px;
+      
+      @include background(image-url('components/overlay/close.png'));
+      
+      a {
+        width: 37px;
+        height: 37px;
+      }
+    }
+    
+    .ui-overlay-content {
+      
+      margin: 30px;
+      
+      .ui-overlay-header {
+        font-family: $TradeGothicBold;
+        font-size: 28px;
+        letter-spacing: -1px;
+        text-transform: uppercase;
+        text-align: center;
+      }
+    }
+  }
+  
+}
+
+/**
+  End ui-overlay
+  Begin ui-scroll-list
+**/
+
+.ui-scroll-list {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+}
+
+/**
+ End ui-scroll-list
+ Begin ui-drawer
+**/
+
+$UIDrawerTimingFunction: ease-in-out;
+$UIDrawerDuration: .25s;
+
+.ui-drawer {
+  
+  height: 0;
+  
+  background: #f2f2f2;
+  border-top: 1px solid #c9c9c9;
+  border-bottom: 1px solid #c9c9c9;
+  
+  @include box-shadow(inset #dedede 0 3px 4px, inset #dedede 0 -3px 4px);
+  
+  .caret {
+    position: absolute;
+    top: -11px;
+
+    @extend .ui-drawer-optimized;
+    
+    @include transition-property('transform');
+    @include transition-duration($UIDrawerDuration);
+    @include transition-timing-function($UIDrawerTimingFunction);
+    @include transform(translate3d(-50px, 0, 0));
+  }
+  
+}
+
+.ui-drawer.open {
+  height: auto;
+}
+
+.ui-drawer.light {
+  background: #f7f7f7;
+}
+
+.ui-drawer-optimized {
+  @include transform(translate3d(0, 0, 0));
+  @include backface-visibility(hidden);
+}
+
+/**
+ *  End ui-drawer
+ *  Begin ui-confirm
+ */
+
+.ui-confirm {
+  
+  text-align: center;
+  letter-spacing: -1px;
+  
+  h3 {
+    font-family: $TradeGothicBold;
+    font-size: 24px;
+    line-height: 26px;
+  }
+  
+  .ui-cta {
+    margin: 3px;
+    font-size: 16px;
+  }
+  
+  .ui-cta-orange {
+    min-width: 180px;
+  }
+  
+  .ui-cta-light-gray {
+    min-width: 110px;
+  }
+}
+
+/**
+ *  End ui-confirm
+ *  Begin ui-toggle
+ */
+
+.ui-toggle {
+  @include pie;
+
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 28px;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  color: #fff;
+  border-bottom: 1px solid #434343;
+
+  @include background(linear-gradient(#b5b5b5, #5c5c5c));
+  @include box-shadow(#ccc 0 1px 4px);
+  @include border-radius(15px);
+
+
+  .opened,
+  .closed {
+    position: absolute;
+    top:9.5px;
+    left:9.5px;
+    font-size:0;
+  }
+
+  .closed {
+    @include sprite-dimensions($sprites, icon-plus-light);
+    @include sprites-generate(icon-plus-light);
+  }
+  .opened {
+    display: none;
+    top:9px;
+
+    @include sprite-dimensions($sprites, icon-minus-light);
+    @include sprites-generate(icon-minus-light);
+  }
+}
+
+.ui-toggle:hover,
+.ui-toggle:active,
+.ui-toggle:visited {
+  color: #fff;
+  @include background(
+    linear-gradient(#afafaf 0%,#a4a4a4 3%,#9f9f9f 6%,#9a9a9a 17%,#7f7f7f 44%,#6e6e6e 58%,#555555 83%,#505050 92%,#4c4c4c 94%,#4d4d4d 97%,#393939 100%)
+  );
+}
+
+.ui-toggle.is-open {
+  border-top: 1px solid #777;
+  border-bottom: 0 none;
+  @include background(linear-gradient(#9f9f9f, #ccc));
+  @include box-shadow(none);
+
+  .closed {
+    display: none;
+  }
+  
+  .opened {
+    display: inline;
+  }
+}
+
+.ui-reset {
+  p{
+    text-align: center;
+    height: 30px;
+    
+    a {
+      padding: 10px 10px 30px 34px;
+      text-transform: uppercase;
+      font-size: 16px;
+      color: #b2b2b2;
+      font-family: $TradeGothicBold;
+      text-decoration: none;
+      letter-spacing: -1px;
+      position: relative;
+      
+      span {
+        @include sprite-dimensions($sprites, reset-arrow);
+        @include sprites-generate(reset-arrow);
+        display: block;
+        position: absolute;
+        top: 9px;
+        left: 10px;
+      //      background: sprite($sprites, reset-arrow, 10px, 9px) no-repeat;
+      }
+    }
+    
+    a:hover,
+    a:active,
+    a:focus {
+      color: #4c4c4c;
+      
+      span {
+        @include sprites-generate(reset-arrow-dark-gray);
+      }
+    }
+  }
+}
+
+/**
+ *  End ui-toggle
+ *  Begin ui-slider-dots
+ */
+
+.ui-slider-dots {
+  position: absolute;
+  width: 100%;
+  bottom: 8px;
+
+  .ui-slider-dot-items {
+    width: 43px;
+    margin: auto;
+
+    .ui-slider-dot-item {
+      padding: 1px;
+
+      p {
+        margin: 0;
+        font-size: 32px;
+        color: #d9d9d9;
+      }
+
+      p.selected {
+        color: #999999;
+      }
+    }
+  }
+}
+
+/** 
+ * End ui-slider-dots
+ */

@@ -1,0 +1,14 @@
+<div class="overlay-container" ng-controller="BaseOverlayController as baseOverlayCtrl"
+	ng-show="baseOverlayCtrl.showOverlay" ng-click="baseOverlayCtrl.onShadowClick($event)">
+    <div class="overlay-content-wrapper">
+
+	    <div class="overlay-close" ng-show="baseOverlayCtrl.showCloseIcon" ng-click="baseOverlayCtrl.close()"></div>
+
+	    <div class="overlay-help" ng-show="baseOverlayCtrl.showHelpIcon"></div>
+
+	    <div class="overlay-content" ng-transclude>
+    		<!-- content to be transcluded here. -->
+	    </div>
+
+    </div>
+</div>

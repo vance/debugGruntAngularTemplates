@@ -1,0 +1,101 @@
+.debugger
+{
+    width: 960px;
+    a
+    {
+        text-decoration: none;
+
+        &.disabled {
+            color: #222;
+            &:hover
+            {
+                color: #222;
+            }
+        }
+    }
+    
+    .debugger-nav
+    {
+        float:right;
+
+        a {
+            color: $gray;
+            font-weight: bold;
+            padding-left: 10px;
+            font-size: 16px;
+
+            position:relative;
+            top: -10px;
+
+            &.active {
+                color: #222;
+            }
+        }
+    }
+
+    .pane
+    {
+        padding-top: 10px;
+
+        width: 100%;
+        height: 500px;
+        overflow-y:auto;
+        overflow-x: hidden;
+    }
+
+    .tracings
+    {   
+        div
+        {
+            padding: 3px 0px 3px 0px;
+        }
+
+        .data
+        {
+            color: #888;
+        }
+    }
+
+    .timings
+    {
+        thead td
+        {
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        td
+        {
+            padding: 5px 2px 5px 2px;
+
+            &.flag
+            {
+                font-weight:bold;
+                color: #aa2222;
+            }
+
+            &.diff
+            {
+                width: 120px;
+            }
+
+            &.id
+            {
+                word-wrap:break-word;
+                max-width: 750px;
+            }
+        }
+    }
+
+    .data
+    {
+        color: #222;
+
+        .disclosure { color: #383838; font-size: 8px; }
+        .key { color: #77027a }
+        .string { color: #c4151e }
+        .number { color: #240bcd}
+        .boolean { color: #333 }
+        .keyword { color: #888 }
+    }
+}

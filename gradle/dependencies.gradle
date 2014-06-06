@@ -1,0 +1,7 @@
+#! groovy
+
+dependencies {
+
+   runtime 	'org.jruby:jruby-complete:1.7.12'
+   
+}

@@ -1,0 +1,19 @@
+body.has-portal-header {
+  .portal-header-wrapper {
+    display: block;
+  }
+}
+.portal-header-wrapper {
+  display: none;
+  min-height: 41px;
+  background-color: #000;
+}
+
+
+.prtl-navbar {
+  &.prtl-navbar-fixed-top {
+    position: absolute !important;
+  }
+
+  a {color: #0088CC;}
+}

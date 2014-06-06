@@ -1,0 +1,22 @@
+{
+    "root":[
+        {
+            "id":0,
+            "name":"Scaffold Larry",
+            "price":100,
+            "currency":"USD"
+        },
+        {
+            "id":1,
+            "name":"Scaffold Curly",
+            "price":200,
+            "currency":"HK"
+        },
+        {
+            "id":2,
+            "name":"Scaffold Moe",
+            "price":300,
+            "currency":"YEN"
+        }
+    ]
+}

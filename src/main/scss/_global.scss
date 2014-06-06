@@ -1,0 +1,170 @@
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  height: 100%;
+  width: 100%;
+}
+
+.hidden-position {
+  width:1px !important;
+  height:1px !important;
+  position:fixed !important;
+  top:-8000px !important;
+  left:-8000px !important;
+}
+
+body.noscroll
+{
+  overflow:hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight:normal;
+}
+
+a { color: #00e; }
+a:visited { color: #551a8b; }
+a:hover { color: #06e; }
+a:focus { outline: thin dotted; }
+a:hover, a:active { outline: 0; }
+
+html, button, input, select, textarea { font-family: Helvetica, Arial, sans-serif; color: #222; }
+
+body {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.2;
+  position:relative;
+
+  height: 100%;
+  width: 100%;
+
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  /* this fixed the fonts on webkit browsers. don't remove */
+  -webkit-font-smoothing: antialiased;
+
+
+  .root-container{
+    min-width: 100%;
+    height:100%;
+    .container {
+      display:block;
+      min-width: 1280px;
+      padding-top: 60px;
+      min-height: 100%;
+      margin-bottom: -62px;
+      overflow: hidden;
+      main {
+        display:block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+
+::-moz-selection { background: #444; color: #fff; text-shadow: none; }
+::selection { background: #444; color: #fff; text-shadow: none; }
+
+/**
+  Box sizing
+**/
+
+* {
+  @include box-sizing('border-box');
+}
+
+/**
+  Orientation helpers. 'portrait' and 'landscape' are automatically appended to <body> onorientationchange
+  
+  o-land: landscape-only feature, hide it in portrait
+  o-port: portrait-only feature, hide it in landscape
+
+**/
+
+.portrait .o-land {
+  display: none;
+}
+
+.landscape .o-port {
+  display: none;
+}
+
+/**
+  Float helpers
+  
+  cf: "clear float", clears a float. usage: <div class="fr">foo</div><div class="cf">bar</div>
+  fc: "float container", contains a float. usage: <div class="fc"><p class="fr">foo</p><p>bar</p></div>
+  fcv: "float container" with overflow: visible. usage: <div class="fcv"><p class="fr dropshadow">i have a bounds-extending drop shadow</p></div><div class="cf">Cleared!</div>
+  fl: "float left"
+  fr: "float right"
+**/
+
+.cf:before,
+.cf:after { content: ""; display: table; clear: both; }
+.fc       { overflow: hidden; }
+.fcv      { overflow: visible; }
+.fl       { float: left; }
+.fr       { float: right; }
+ul.fc,
+ul.fcv    { margin: 0; padding: 0; list-style: none; }
+ul.fc li,
+ul.fcv li { margin: 0; padding: 0; }
+
+/**
+  Moved from _reset
+**/
+
+.ir {
+  display: block; 
+  border: 0; 
+  text-indent: -999em; 
+  overflow: hidden; 
+  background-color: transparent; 
+  background-repeat: no-repeat; 
+  text-align: left; 
+  direction: ltr; 
+  *line-height: 0;
+}
+
+.ir br {
+  display: none;
+}
+
+.hidden { 
+  display: none !important;
+}
+
+.not-visible {
+  visibility:hidden;
+}
+
+.container {
+  min-width: 1280px;
+  padding-top: 60px;
+  min-height: 100%;
+  margin-bottom: -62px;
+  overflow: hidden;
+}
+
+.has-portal-header {
+  .container {
+    padding-top: 55px;
+  }
+}
+
+.view-root {
+  width: 100%;
+  margin-bottom: 62px;
+}
+
+.centered {
+  margin: 0px auto;
+  width: 1280px;
+}
+

@@ -1,0 +1,374 @@
+/**
+ *
+ * Extract into Header.scss
+ * 
+ */
+ 
+@mixin headerActiveState {
+  @include background(
+    image-url('shell/drawer-noise.png'),
+    linear-gradient(#131416, #1d1f23)
+  );
+  @include box-shadow(inset #0e0e0e 0 8px 10px 0px);
+  a {
+     color: $orange;
+  }
+}
+
+@mixin headerActiveHiddenBorder {
+  a:after {
+    @include background(
+      image-url('shell/drawer-noise.png')
+    );
+    background-color: #1d1f23;
+    content: '';
+    height: 2px;
+    position: absolute;
+    top: 59px;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+  }
+}
+
+ 
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-width: 1280px;
+  height: 61px;
+  z-index: 800;
+
+  >div:first-child {
+    @include box-shadow(#000 0 0px 15px);
+    position: relative;
+    z-index: 2;
+    display: none;
+  }
+}
+
+.has-portal-header {
+  header {
+    top: 36px;
+    >div:first-child {
+      display: block;
+      height: 36px;
+    }
+  }
+}
+
+nav {
+  position: relative;
+  height: 61px;
+  $experimental-support-for-svg: true;
+  @include box-shadow(#111111 0 1px 8px 0px);
+
+  @include background(
+    image-url('shell/drawer-noise.png'),
+    linear-gradient(#303237, #25272b)
+  );
+
+  ul {
+    line-height: 61px;
+    margin: 0;
+    padding: 0;
+
+    font-family: $TradeGothicBold;
+
+    li {
+      text-align: center;
+      border-left: 1px solid #444444;
+      border-right: 1px solid #1d1d1d;
+      position: relative;
+      color: $gray;
+
+      a, a:visited {
+        @include transition-property('all');
+        @include transition-duration(0.1s);
+        @include transition-timing-function(ease-in);
+        padding: 0 30px;
+        display: block;
+        height: 60px;
+        text-decoration: none;
+        font-size: 14px;
+        color: #d3d7da;
+        text-transform: uppercase;
+      }
+      
+      &.nav-button:hover, &.nav-button:focus {
+        $experimental-support-for-svg: true;
+
+        @include background(
+          image-url('shell/drawer-noise.png'),
+          linear-gradient(rgba(19,20,22, 0.5),rgba(30,31,33, 0.5))
+        );
+        a {
+           color: $orange;
+        }
+      }
+      
+      &.nav-button.header-active, &.nav-button:active {
+       a {
+          cursor: default;
+          color: $orange;
+        }
+        @include headerActiveState;
+        @include headerActiveHiddenBorder;
+
+        &.header-active:hover,
+        &.header-active:focus {
+          @include headerActiveState;
+          @include headerActiveHiddenBorder;
+        }
+      }
+
+      &.global-navigation
+      {
+        border-right: 1px solid #1d1d1d;
+      }
+
+      &.current-category
+      {
+        border-right: 1px solid #1d1d1d;
+        a
+        {
+          color: $orange;
+        }
+      }
+      &.last-divide {
+        width:2px;
+        height:60px;
+        border-left: 1px solid #444444;
+        border-right: 0px solid transparent;
+        &:hover,
+        &:focus {
+          $experimental-support-for-svg: false;
+          background:none !important;
+        }
+      }
+      &.first-divide {
+        width:2px;
+        height:60px;
+        border-left: 0px solid transparent;
+        border-right: 1px solid #1d1d1d;
+        &:hover,
+        &:focus {
+          $experimental-support-for-svg: false;
+          background:none !important;
+        }
+      }
+    }
+  
+    .nav-app-title,
+    .nav-all-orders{
+       border-right: 1px solid #1d1d1d;
+    }
+
+    .nav-cart, .nav-size-curves
+    {
+       border-right: 1px solid #1d1d1d;
+    }
+
+    .nav-app-title {
+      border-left: none;
+      font-size: 18px;
+      color: #6d7073;
+      padding: 0 30px;
+      letter-spacing: -1px;
+    }
+
+    .nav-cart {
+      
+      a {
+        color: $orange;
+
+        span {
+          text-indent: -9999px;
+          margin: 0 10px;
+        }
+
+        .header-cart-items-count {
+          margin: 0;
+          padding: 0 0 0 10px;
+          border-left: 1px solid rgba(248, 249,249, 0.15);
+          height: 18px;
+          line-height: 22px;
+          display: inline-block;
+          text-indent: 0;
+        }
+
+        .cart-icon,
+        .ftwr-icon,
+        .aprl-icon,
+        .eqmt-icon {
+          overflow: hidden;
+          display: inline-block;
+          text-indent: -9999px;
+          position: relative;
+        }
+
+        .cart-icon {
+          @include sprite-dimensions($sprites, header-cart-icon);
+          @include sprites-generate(header-cart-icon);
+          margin-left: 0;
+          margin-right: 20px;
+          top: 2px;
+        }
+
+        .ftwr-icon {
+          @include sprite-dimensions($sprites, header-ftwr-icon);
+          @include sprites-generate(header-ftwr-icon);
+        }
+
+        .aprl-icon {
+          @include sprite-dimensions($sprites, header-aprl-icon);
+          @include sprites-generate(header-aprl-icon);
+          top: 4px;
+        }
+
+        .eqmt-icon {
+          @include sprite-dimensions($sprites, header-eqmt-icon);
+          @include sprites-generate(header-eqmt-icon);
+          margin-right: 0;
+          top: 4px;
+        }
+      }
+    }
+
+    .nav-size-curves {
+      a {
+        .size-curves-icon {
+          @include sprite-dimensions($sprites, header-size-curves-icon);
+          @include sprites-generate(header-size-curves-icon);
+          text-indent: -9999px;
+          display: inline-block;
+          margin-right: 3px;
+          overflow: hidden;
+        }
+      }
+    }
+
+    .nav-help {
+      a {
+        width: 78px;
+        
+        .header-help-icon {
+          @include sprite-dimensions($sprites, header-help-icon);
+          @include sprites-generate(header-help-icon);
+          text-indent: -9999px;
+          display: block;
+          position: relative;
+          top: 20px;
+        }
+      }
+
+      &:hover, &:active, &.header-active{
+        .header-help-icon {
+          @include sprites-generate(header-help-icon-active);
+        }
+      }
+    }
+
+    .nav-global-navigation
+    {
+      .icon
+      {
+        position: relative;
+        top: -4px;
+        display: inline-block;
+        margin-left: 30px;
+        @include sprite-dimensions($sprites, triangle-down-gray);
+        @include sprites-generate(triangle-down-gray);
+      }
+
+      &.header-active .icon, &:hover .icon
+      {
+        @include sprite-dimensions($sprites, triangle-up-orange);
+        @include sprites-generate(triangle-up-orange);
+      }
+
+    }
+  }
+}
+
+.header-help-list {
+
+  @include background(
+    image-url('shell/drawer-noise.png')
+  );
+  background-color: #1d1f23;
+
+  @include box-shadow(#111111 0 2px 1px 0px);
+
+  text-align:left;
+
+  box-sizing: content-box;
+  position: absolute;
+  top: 61px;
+  right: 0px;
+  max-height: 0px;
+  overflow:hidden;
+  color: $lightgray;
+
+  @include transition-property('max-height');
+  @include transition-duration(0.7s);
+  @include transition-timing-function(ease-out);
+  @include transition-delay(0.05s);
+
+  &.active
+  {
+    max-height: 800px;
+  }
+
+  .list-wrapper
+  {
+    padding: 18px 30px 20px 30px;
+
+    h2 {
+      font-family: $TradeGothicBold;
+      text-transform: uppercase;
+      margin: 0px 0px 8px 0px;
+      padding: 0px;
+    }
+
+    ul {
+      border:0;
+      li {
+        text-align:left;
+        border:0;
+        padding:0;
+        margin:0;
+        text-transform: uppercase;
+        list-style-type: none;
+        line-height: 28px;
+
+        &.video {
+          font-family: $TradeGothicCondensed;
+          letter-spacing:-1;
+          span {
+            display:inline-block;
+            margin-right: 10px;
+            @include sprites-generate(icon-video);
+            @include sprite-dimensions($sprites, icon-video);
+          }
+        }
+
+        &:hover {
+          color:$orange;
+          cursor: pointer;
+          @include background(
+            image-url('shell/drawer-noise.png')
+          );
+          background-color: #1d1f23;
+        }
+
+        &.inactive:hover {
+          cursor: default;
+          color: $gray;
+        }
+      }
+    }
+  } 
+}

@@ -1,0 +1,20 @@
+<div class="header-container" ng-controller="NavController as navCtrl" ng-hide="navCtrl.hide">
+    <nav class="cf">
+        <div class="fl">
+            <ul>
+                <li class="nav-button nav-dashboard fl{{navCtrl.navClass('product-search')}}">
+                    <a href="javascript:void(0);" ng-click="navCtrl.goToSearch()">Dashboard</a>
+                </li>
+                <li class="nav-button nav-error-page fl{{navCtrl.navClass('error')}}">
+                    <a href="javascript:void(0);" ng-click="navCtrl.goToError()">Error Page</a>
+                </li>          
+                <li class="nav-button nav-hide-nav fl">
+                    <a href="javascript:void(0);" ng-click="navCtrl.hideNav()">Kill Nav Header</a>
+                </li>                       
+                <li class="nav-button last-divide fl">
+                    <!-- used for last divider -->
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>

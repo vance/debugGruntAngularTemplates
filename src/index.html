@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="SomePublicApp">
+	<head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+        <title></title>
+		<script src="main/resources/lib/jquery-2.1.1/jquery-2.1.1.min.js"></script>
+		<script src="main/resources/lib/underscore-1.6/underscore-min.js"></script>
+		<script src="main/resources/lib/angular-1.2.16/angular.min.js"></script>
+		<script src="main/resources/lib/angular-1.2.16/angular-route.min.js"></script>
+		<script src="main/resources/lib/angular-1.2.16/angular-resource.min.js"></script>
+		<script src="main/resources/lib/debugger/renderjson.js"></script>
+		<script src="main/resources/lib/debugger/dimple.v1.1.2.min.js"></script>
+		<script src="main/resources/lib/d3.v3.1.10.min.js"></script>
+
+
+		<script src="main/app/App.js"></script>
+		<script src="main/app/settings.js"></script>
+		<script src="main/commons/base/BaseController.js"></script>
+		<script src="main/app/pages/product-search/ProductSearchController.js"></script>
+		<script src="main/commons/base/GlobalController.js"></script>
+        <!-- components -->
+		<script src="main/app/components/nav/NavController.js"></script>
+		<script src="main/app/components/nav/NavigationDirective.js"></script>
+
+        <script src="main/app/components/widgetView/WidgetController.js"></script>
+        <script src="main/app/components/widgetView/WidgetListDirective.js"></script>
+        <script src="main/commons/models/widget/WidgetFactory.js"></script>
+
+		<script src="main/commons/utils/Constants.js"></script>
+		<script src="main/commons/utils/Debug.js"></script>
+
+		<script src="main/commons/containers/base-overlay/BaseOverlayController.js"></script>
+		<script src="main/commons/containers/base-overlay/BaseOverlayDirective.js"></script>
+		<script src="main/app/modals/debugger-modal/DebuggerController.js"></script>
+		<script src="main/app/modals/debugger-modal/DebuggerDirective.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="main/resources/css/screen.css" />
+	</head>
+	<body ng-controller="GlobalController as globalCtrl">
+		<navigation></navigation>
+		<div ng-view style="min-width: 100%;"></div>
+
+		<base-overlay showCloseIcon="true">
+			<debugger></debugger>
+		</base-overlay>
+	</body>
+</html>

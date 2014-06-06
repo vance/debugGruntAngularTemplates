@@ -1,0 +1,38 @@
+/*********************************************
+    End global shared classes
+    Begin fonts
+ *********************************************/
+
+$FuturaExtraBold: 'FuturaW01-ExtraBoldCond 774896';
+$TradeGothicBold: 'trade_gothic_lt_stdBdCnno20';
+$TradeGothicCondensed: 'Trade Gothic LT Std-Condensed18';
+
+@font-face {
+ font-family: $FuturaExtraBold;
+ font-style: normal;
+ src: font-url('../../main/fonts/bec66ca3-753a-469a-b153-fdd9e3ea7ce4.eot');
+ src: font-url('../../main/fonts/bec66ca3-753a-469a-b153-fdd9e3ea7ce4.eot?#iefix') format('eot'),
+      font-url('../../main/fonts/04733668-9f3f-4f2f-a534-14fb44683f83.woff') format('woff'),
+      font-url('../../main/fonts/1f9bced0-1224-4785-9553-68fcbac00914.ttf') format('truetype'),
+      font-url('../../main/fonts/23d05127-305c-4753-8f3a-16d8109db5ca.svg#23d05127-305c-4753-8f3a-16d8109db5ca') format('svg');
+}
+
+@font-face {
+  font-family: $TradeGothicBold;
+  font-style: normal;
+  src: font-url('../../main/fonts/tradegothicltstd-bdcn20-webfont.eot');
+  src: font-url('../../main/fonts/tradegothicltstd-bdcn20-webfont.eot?#iefix') format('eot'),
+       font-url('../../main/fonts/tradegothicltstd-bdcn20-webfont.woff') format('woff'),
+       font-url('../../main/fonts/tradegothicltstd-bdcn20-webfont.ttf') format('truetype'),
+       font-url('../../main/fonts/tradegothicltstd-bdcn20-webfont.svg') format('svg');
+}
+
+@font-face {
+  font-family: $TradeGothicCondensed;
+  font-style: normal;
+  src: font-url('../../main/fonts/tradegothicltstd-cn18-webfont.eot');
+  src: font-url('../../main/fonts/tradegothicltstd-cn18-webfont.eot?#iefix') format('eot'),
+       font-url('../../main/fonts/tradegothicltstd-cn18-webfont.woff') format('woff'),
+       font-url('../../main/fonts/tradegothicltstd-cn18-webfont.ttf') format('truetype'),
+       font-url('../../main/fonts/tradegothicltstd-cn18-webfont.svg') format('svg');
+}

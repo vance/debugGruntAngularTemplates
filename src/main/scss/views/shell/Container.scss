@@ -1,0 +1,53 @@
+@import "compass/css3";
+
+body {
+  @include background(linear-gradient(#e8e8e8 30%, #dadada 100%));
+  
+  background-repeat: no-repeat;
+
+  height: 100%;
+}
+
+.container {
+  background-color: white;
+}
+
+.time-out
+{
+    @include pie;
+    min-height: 100%;
+    background: #f8f8f8;
+    @include background (radial-gradient(center center, circle closest-side, #f8f8f8 8%, #ddd 100%));
+    .time-out-wrapper {
+        width: 358px;
+		height: 296px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin: -178px 0 0 -179px;
+	    h1 {
+	        margin: 0;
+	        padding-left:190px;
+	        color: #333333;
+	        font-family: $TradeGothicBold;
+	        font-size: 68px;
+	        line-height: 100%;
+	        letter-spacing: -3px;
+	        height: 62px;
+	        background: image-url('shell/login-swoosh.png') no-repeat left top;
+	    }
+	    p {
+	        border-top: 1px solid $gray;
+	        border-bottom: 1px solid $gray;
+	        font-family: "trade_gothic_lt_stdBdCnno20";
+	        font-size: 18px;
+	        font-style: italic;
+	        color: #999999;
+	        margin-top: 30px;
+	        padding: 15px 20px;
+	        text-transform: uppercase;
+	        text-align: center;
+	        letter-spacing: -1px;
+	    }
+    }
+}

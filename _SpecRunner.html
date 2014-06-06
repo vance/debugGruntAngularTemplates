@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Jasmine Spec Runner</title>
+
+  
+  <link rel="stylesheet" type="text/css" href=".grunt/grunt-contrib-jasmine/jasmine.css">
+  
+
+  <script src=".grunt\grunt-contrib-jasmine/require.js"></script>
+  <script>
+    require.onError = function(error) {
+      var message = error.requireType + ': ';
+      if (error.requireType === 'scripterror' || error.requireType === 'notloaded' && error.requireModules) {
+        message += 'Illegal path or script error: ' + '[\'' + error.requireModules.join("', '") + '\']';
+      } else {
+        message += error.message;
+      }
+
+      throw Error(message);
+    };
+  </script>
+
+  
+  
+  <script src=".grunt/grunt-contrib-jasmine/jasmine.js"></script>
+  
+  <script src=".grunt/grunt-contrib-jasmine/jasmine-html.js"></script>
+  
+  <script src="src/main/resources/lib/angular-1.2.16/angular.js"></script>
+  
+  <script src="src/main/resources/lib/angular-1.2.16/angular-mocks.js"></script>
+  
+  <script src="src/main/resources/lib/angular-1.2.16/angular-resource.js"></script>
+  
+  <script src="src/main/resources/lib/angular-1.2.16/angular-route.js"></script>
+  
+  <script src="src/main/resources/lib/debugger/renderjson.js"></script>
+  
+  <script src="src/main/resources/lib/debugger/dimple.v1.1.2.min.js"></script>
+  
+  <script src="src/main/resources/lib/angular-1.2.16/angular-scenario"></script>
+  
+  <script src="src/main/app/templates.js"></script>
+  
+  
+
+  <script>
+    
+
+    
+      require.config({
+  "baseUrl": ".grunt/grunt-contrib-jasmine/",
+  "paths": {
+    "angular": "src/main/resources/lib/angular-1.2.16/angular",
+    "angularMocks": "src/main/resources/lib/angular-1.2.16/angular-mocks",
+    "angularResource": "src/main/resources/lib/angular-1.2.16/angular-resource",
+    "angularRoute": "src/main/resources/lib/angular-1.2.16/angular-route",
+    "angularScenario": "src/main/resources/lib/angular-1.2.16/angular-scenario"
+  },
+  "shim": {
+    "angular": {
+      "exports": "angular"
+    },
+    "angular-ui.utils": {
+      "deps": [
+        "angular"
+      ]
+    },
+    "angularMocks": {
+      "deps": [
+        "angular"
+      ],
+      "exports": "angular.mock"
+    },
+    "angularResource": {
+      "deps": [
+        "angular"
+      ],
+      "exports": "angular.resource"
+    },
+    "angularRoute": {
+      "deps": [
+        "angular"
+      ],
+      "exports": "angular.router"
+    },
+    "angularScenario": {
+      "deps": [
+        "angular"
+      ],
+      "exports": "angular.scenario"
+    }
+  }
+});
+    
+  </script>
+
+  <script>
+    function launchTest() {
+    require([
+      
+        
+        '../../src/main/app/app' ,
+      
+        
+        '../../src/main/app/components/nav/NavController' ,
+      
+        
+        '../../src/main/app/components/nav/NavigationDirective' ,
+      
+        
+        '../../src/main/app/settings' ,
+      
+        
+        '../../src/main/app/templates' ,
+      
+        
+        '../../src/main/commons/base/BaseController' ,
+      
+        
+        '../../src/main/commons/base/GlobalController' ,
+      
+        
+        '../../src/main/commons/containers/base-overlay/BaseOverlayController' ,
+      
+        
+        '../../src/main/commons/containers/base-overlay/BaseOverlayDirective' ,
+      
+        
+        '../../src/main/commons/models/widget/WidgetFactory' ,
+      
+        
+        '../../src/main/commons/models/widget/WidgetService' ,
+      
+        
+        '../../src/main/commons/utils/Constants' ,
+      
+        
+        '../../src/main/commons/utils/Debug' 
+      
+    ],
+    function(){
+      require(['test/specs/UnitTestUnitTest.Spec.js','.grunt/grunt-contrib-jasmine/reporter.js'], function(){
+        require(['.grunt/grunt-contrib-jasmine/jasmine-helper.js'], function(){
+          // good to go! Our tests should already be running.
+        })
+      })
+    }
+    )
+  }
+  </script>
+
+  
+  <script>
+  launchTest();
+  </script>
+  
+</head>
+<body>
+</body>
+</html>
